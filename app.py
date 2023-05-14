@@ -19,8 +19,10 @@ app = Flask(__name__)
 CORS(app)
 app=flask.Flask(__name__,template_folder='templates')
 
-with open('model_tfidf_small.pkl', 'rb') as handle:
-	tfidf_model = pickle.load(handle)
+#with open('model_tfidf_small.pkl', 'rb') as handle:
+tfidf_model = pickle.load(open('model_tfidf_small.pkl', 'rb'))
+	#model = pickle.load(open('model.pkl', 'rb'))
+
 
 @app.route('/')
 def main():
@@ -78,8 +80,10 @@ def predict():
     #return render_template('main.html', prediction_text='The news is "{}"'.format(pred[0]))
     
 
-with open('count_small_model.pkl', 'rb') as handle:
-	count_model = pickle.load(handle)
+#with open('count_small_model.pkl', 'rb') as handle:
+#count_model = pickle.load(handle)
+pickle.load(open('count_small_model.pkl', 'rb'))
+	
 @app.route('/tfidf',methods=['GET','POST'])
 def tfidf():
     url =request.get_data(as_text=True)[5:]
