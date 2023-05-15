@@ -13,7 +13,7 @@ import newspaper
 from newspaper import Article
 import urllib
 import numpy as np
-
+from scipy.sparse import csr_matrix
 #Loading Flask and assigning the model variable
 app = Flask(__name__)
 CORS(app)
